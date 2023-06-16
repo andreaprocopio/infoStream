@@ -1,5 +1,7 @@
-export default function Home() {
+export default function Homepage() {
   return (
-    <h1 className="text-center">Hello</h1>
+    <main>
+      Hello
+    </main>
   )
 }
