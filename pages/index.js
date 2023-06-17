@@ -1,11 +1,12 @@
-import SearchMovie from "@/components/SearchMovie";
-import MovieGrid from "@/components/MovieGrid";
+import Footer from "@/components/Footer";
+import MovieCarousel from "@/components/MovieCarousel";
 
 export default function Homepage() {
   return (
     <>
-      <SearchMovie />
-      <MovieGrid />
+      <MovieCarousel color={100} content={'featured'}/>
+      <MovieCarousel color={900} content={'latest'} />
+      <Footer />
     </>
   )
 }

@@ -9,7 +9,7 @@ const DUMMY_DATA = [
     rating: 7.9,
     duration: 126,
     description: 'Il miliardario Tony Stark costruisce una potente armatura per diventare Iron Man e combattere il male.',
-    image: '/images/movies/iron-man.webp'
+    image: '/images/movies/iron-man.jpg'
   },
   {
     id: '2',
@@ -21,7 +21,7 @@ const DUMMY_DATA = [
     rating: 8.0,
     duration: 143,
     description: 'I supereroi Iron Man, Captain America, Hulk, Thor, Black Widow e Hawkeye si uniscono per salvare il mondo dal perfido Loki.',
-    image: '/images/movies/iron-man.webp'
+    image: '/images/movies/avengers.jpg'
   },
   {
     id: '3',
@@ -33,7 +33,7 @@ const DUMMY_DATA = [
     rating: 8.0,
     duration: 121,
     description: 'Un gruppo di improbabili eroi spaziali si unisce per combattere contro una minaccia intergalattica.',
-    image: '/images/movies/iron-man.webp'
+    image: '/images/movies/guardians-of-the-galaxy.jpg'
   },
   {
     id: '4',
@@ -45,7 +45,7 @@ const DUMMY_DATA = [
     rating: 7.7,
     duration: 136,
     description: 'Il Capitano America si unisce alla Vedova Nera per svelare una cospirazione all\'interno della S.H.I.E.L.D.',
-    image: '/images/movies/iron-man.webp'
+    image: '/images/movies/captain-america-the-winter-soldier.jpg'
   },
   {
     id: '5',
@@ -57,7 +57,7 @@ const DUMMY_DATA = [
     rating: 7.3,
     duration: 134,
     description: 'Il nuovo re di Wakanda, il supereroe Black Panther, deve difendere il suo regno da una minaccia esterna.',
-    image: '/images/movies/iron-man.webp'
+    image: '/images/movies/black-panther.jpg'
   }
 ]
 

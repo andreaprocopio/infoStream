@@ -6,8 +6,8 @@ const MovieCard = (props) => {
   console.log(movie)
   return (
     <div className='bg-indigo-900 py-4 px-4 rounded-lg text-indigo-100 w-full sm:w-3/5 mx-auto md:w-full shadow-md shadow-indigo-950'>
-      { movie.image && <img src={movie.image} className='w-full h-auto rounded-lg -translate-y-7 max-h-96 object-cover' alt={movie.title} /> }
-      <h3 className='text-lg font-semibold tracking-wide'>{movie.title}</h3>
+      { movie.image && <img src={movie.image} className='w-full h-auto rounded-lg -translate-y-7 object-cover max-h-96' alt={movie.title} /> }
+      <h3 className='text-lg font-semibold tracking-wide -mt-5'>{movie.title}</h3>
       <div className='text-xs font-light text-amber-400 flex gap-1'>
         <p>{movie.rating}</p>
         <AiOutlineStar size={15}/>
@@ -18,9 +18,6 @@ const MovieCard = (props) => {
       <p className='mt-5 text-sm text-indigo-200'>
         {movie.description}
       </p>
-      <span className='text-xs font-thin text-indigo-200 block w-full text-right mt-3'>
-        {movie.year}
-      </span>
     </div>
   )
 }
