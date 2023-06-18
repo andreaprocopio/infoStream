@@ -1,7 +1,6 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { getAllMovies } from '@/data/dummy-data'
 import CarouselCard from './CarouselCard';
 
 const responsive = {
@@ -27,11 +26,11 @@ const MovieCarousel = (props) => {
 
   const title = props.content === 'featured' ? 'In Primo Piano:' : 'Ultimi Arrivi:'
   const textColor = props.color === 900 ? 100 : 850
-  const movies = getAllMovies()
+  const movies = props.movies
 
   return (
     <div className={'w-full ' + 'bg-indigo-' + props.color}>
-      <h2 className={"text-xl max-w-6xl mx-auto font-semibold px-10 pt-10 " + 'bg-indigo-' + props.color + ' text-indigo-' + textColor}>{title}</h2>      
+      <h2 className={"text-xl max-w-6xl mx-auto font-semibold px-10 pt-5 " + 'bg-indigo-' + props.color + ' text-indigo-' + textColor}>{title}</h2>      
       <Carousel responsive={responsive} 
                 infinite={true}
                 autoPlay={true}

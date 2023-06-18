@@ -3,7 +3,6 @@ import { AiOutlineStar } from 'react-icons/ai'
 
 const MovieCard = (props) => {
   const movie = props.movie
-  console.log(movie)
   return (
     <div className='bg-indigo-900 py-4 px-4 rounded-lg text-indigo-100 w-full sm:w-3/5 mx-auto md:w-full shadow-md shadow-indigo-950'>
       { movie.image && <img src={movie.image} className='w-full h-auto rounded-lg -translate-y-7 object-cover max-h-96' alt={movie.title} /> }
