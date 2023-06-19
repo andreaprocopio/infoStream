@@ -6,7 +6,6 @@ import Hero from "@/components/Hero";
 export default function Homepage(props) {
 
   const trendingMovies = props.trendingMovies
-  console.log(trendingMovies)
 
   return (
     <>
