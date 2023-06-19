@@ -29,8 +29,8 @@ const MovieCarousel = (props) => {
   const movies = props.movies
 
   return (
-    <div className={'w-full ' + 'bg-indigo-' + props.color}>
-      <h2 className={"text-xl max-w-6xl mx-auto font-semibold px-10 pt-5 " + 'bg-indigo-' + props.color + ' text-indigo-' + textColor}>{title}</h2>      
+    <div className={'w-full'}>
+      <h4 class={"text-2xl mx-auto font-bold px-10 pt-5 max-w-6xl mb-2 text-indigo-" + textColor}>{title}</h4>      
       <Carousel responsive={responsive} 
                 infinite={true}
                 autoPlay={true}
