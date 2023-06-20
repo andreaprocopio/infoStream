@@ -10,7 +10,7 @@ export default function Homepage(props) {
   return (
     <>
       <Hero />
-      <MovieCarousel color={100} content={'featured'} movies={trendingMovies.results} />
+      <MovieCarousel color={0} content={'featured'} movies={trendingMovies.results} />
       <MovieCarousel color={900} content={'latest'} movies={trendingMovies.results} />
       <Footer />
     </>
@@ -24,5 +24,6 @@ export async function getStaticProps() {
     props: {
       trendingMovies,
     },
+    revalidate: 900 //15 m
   }
 }

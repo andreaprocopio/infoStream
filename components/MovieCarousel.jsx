@@ -25,17 +25,18 @@ const responsive = {
 const MovieCarousel = (props) => {
 
   const title = props.content === 'featured' ? 'In Primo Piano:' : 'Ultimi Arrivi:'
-  const textColor = props.color === 900 ? 100 : 850
+  const textColor = props.color === 900 ? 50 : 900
   const movies = props.movies
+  const bgColorClass = props.color === 900 ? 'bg-gradient-to-br from-indigo-700 to-indigo-900' : 'bg-white'
 
   return (
-    <div className={'w-full'}>
+    <div className={'w-full ' + bgColorClass}>
       <h4 class={"text-2xl mx-auto font-bold px-10 pt-5 max-w-6xl mb-2 text-indigo-" + textColor}>{title}</h4>      
       <Carousel responsive={responsive} 
                 infinite={true}
                 autoPlay={true}
                 autoPlaySpeed={3000}
-                className='max-w-6xl mx-auto'>
+                className='max-w-6xl mx-auto pb-5'>
         {movies.map(movie => (
           <CarouselCard key={movie.id} movie={movie} textColor={textColor} />
         ))}
