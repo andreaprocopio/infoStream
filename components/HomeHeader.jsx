@@ -69,10 +69,10 @@ const HomeHeader = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div class={"block w-full md:hidden bg-gradient-to-br from-purple-600 to-blue-500 fixed top-0 h-screen z-[10000] transition-all duration-300 " + mobileMenuLeft}>
+      <div className={"block w-full md:hidden bg-gradient-to-br from-purple-600 to-blue-500 fixed top-0 h-screen z-[10000] transition-all duration-300 " + mobileMenuLeft}>
         <AiOutlineClose size={30} className='border rounded-md absolute right-10 top-10 text-white hover:cursor-pointer' onClick={mobileMenuHandler}/>
 
-        <ul class="h-full font-extrabold uppercase flex flex-col space-y-10 justify-center items-center text-3xl">
+        <ul className="h-full font-extrabold uppercase flex flex-col space-y-10 justify-center items-center text-3xl">
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
             Home
           </li>
