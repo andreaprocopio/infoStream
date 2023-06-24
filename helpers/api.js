@@ -48,7 +48,7 @@ export async function getTrendingTv() {
 }
 
 export async function getUpcomingMovies() {
-  const url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1'
+  const url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=2'
   const options = {
     method: 'GET',
     headers: {

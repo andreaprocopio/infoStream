@@ -22,26 +22,24 @@ const responsive = {
   }
 };
 
-const MovieCarousel = (props) => {
+const CarouselBig = (props) => {
 
-  const textColor = props.color === 900 ? 50 : 950
   const movies = props.movies
-  const bgColorClass = props.color === 900 ? 'bg-gradient-to-br from-indigo-700 to-indigo-900' : 'bg-white'
 
   return (
-    <div className={'w-full ' + bgColorClass}>
-      <h4 className={"text-2xl mx-auto font-bold px-10 pt-5 max-w-6xl mb-2 text-indigo-" + textColor}>{props.content}</h4>      
+    <div className={'w-full bg-white'}>
+      <h4 className={"text-2xl mx-auto font-bold px-10 pt-5 max-w-6xl mb-2"}>{props.content}</h4>      
       <Carousel responsive={responsive} 
                 infinite={true}
                 autoPlay={true}
                 autoPlaySpeed={3000}
                 className='max-w-6xl mx-auto pb-5'>
         {movies.map(movie => (
-          <CarouselCard key={movie.id} movie={movie} textColor={textColor} />
+          <CarouselCard key={movie.id} movie={movie} />
         ))}
       </Carousel>
     </div>
   )
 }
 
-export default MovieCarousel
+export default CarouselBig
