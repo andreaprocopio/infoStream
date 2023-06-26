@@ -3,11 +3,13 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { useState, useEffect } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const HomeHeader = () => {
 
   const [navbarScrolled, setNavbarScrolled] = useState(false)
   const [mobileMenu, setMobileMenu] = useState(false)
+  const router = useRouter()
 
   const mobileMenuHandler = () => {
     setMobileMenu((prev) => !prev)
@@ -29,8 +31,8 @@ const HomeHeader = () => {
     }
   }, [])
 
-  const navBackground = navbarScrolled ? 'bg-white text-gray-900 shadow-lg' : 'bg-transparent text-white'
-  const navText = navbarScrolled ? 'bg-gradient-to-br from-purple-600 to-blue-500 bg-clip-text text-transparent' : 'text-white'
+  const navBackground = navbarScrolled ? 'bg-white text-gray-900 shadow-lg' : router.asPath !== '/' ? 'bg-transparent text-gray-900 shadow-lg' : 'bg-transparent text-white'
+  const navText = navbarScrolled ? 'bg-gradient-to-br from-purple-600 to-blue-500 bg-clip-text text-transparent' : router.asPath !== '/' ? 'bg-gradient-to-br from-purple-600 to-blue-500 bg-clip-text text-transparent' : 'text-white'
   const mobileMenuLeft = mobileMenu ? 'left-0' : 'left-full'
 
   return (
@@ -80,17 +82,22 @@ const HomeHeader = () => {
 
         <ul className="h-full font-extrabold uppercase flex flex-col space-y-10 justify-center items-center text-3xl">
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
-            <Link href="/genres">
+            <Link href="/" onClick={mobileMenuHandler}>
+              Home  
+            </Link>
+          </li>          
+          <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
+            <Link href="/genres" onClick={mobileMenuHandler}>
               Genres  
             </Link>
           </li>
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
-            <Link href="/search">
+            <Link href="/search" onClick={mobileMenuHandler}>
               Search  
             </Link>
           </li>
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
-            <Link href="/contact">
+            <Link href="/contact" onClick={mobileMenuHandler}>
               Contact
             </Link>
           </li>
