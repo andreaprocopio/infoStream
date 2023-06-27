@@ -35,7 +35,7 @@ const CarouselBig = (props) => {
                 autoPlaySpeed={3000}
                 className='max-w-6xl mx-auto pb-5'>
         {movies.map(movie => (
-          <CarouselCard key={movie.id} movie={movie} />
+          <CarouselCard key={movie.id} movie={movie} genres={props.genres} />
         ))}
       </Carousel>
     </div>

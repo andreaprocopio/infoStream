@@ -36,7 +36,7 @@ const CarouselSmall = (props) => {
                 autoPlaySpeed={3000}
                 className='max-w-6xl mx-auto pb-5'>
         {movies.map(movie => (
-          <CarouselCardSmall key={movie.id} movie={movie} />
+          <CarouselCardSmall key={movie.id} movie={movie} genres={props.genres} />
         ))}
       </Carousel>
     </div>
