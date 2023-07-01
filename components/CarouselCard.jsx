@@ -2,6 +2,7 @@ import React from 'react'
 import { AiOutlineStar } from 'react-icons/ai'
 import Image from 'next/image'
 import Link from 'next/link'
+import Badge from './Badge'
 
 const CarouselCard = (props) => {
   const movie = props.movie
@@ -18,8 +19,6 @@ const CarouselCard = (props) => {
   .filter(genre => movie.genre_ids.includes(genre.id))
   .map(genre => genre.name);
 
-  console.log(movie)
-
   return (
     <Link href={`/${movie.id}`} className="bg-white border-gray-200 rounded-lg relative shadow block w-4/5 mx-auto">
       <Image src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} width={295} height={442} className='rounded-t-lg w-full max-h-96 h-96 object-cover' alt={movie.original_title != undefined ? movie.original_title : 'movie poster'} />
@@ -32,9 +31,10 @@ const CarouselCard = (props) => {
         </div>
       </div>
       <div className='absolute bottom-2 right-2'>
-        {movieGenreNames.slice(0,3).map(genre => (
-          <span key={genre} className="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">{genre}</span>
+        {movieGenreNames.slice(0,2).map(genre => (
+          <Badge key={genre} genre={genre} />
         ))}
+        {movieGenreNames.length > 2 && <Badge />}
       </div>
     </Link>
   )
