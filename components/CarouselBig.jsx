@@ -25,6 +25,7 @@ const responsive = {
 const CarouselBig = (props) => {
 
   const movies = props.movies
+  // console.log(movies)
 
   return (
     <div className={'w-full bg-white'}>
