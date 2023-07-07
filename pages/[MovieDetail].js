@@ -1,17 +1,17 @@
 import React from 'react'
 import PageContent from '@/components/PageContent'
-import { getById } from '@/helpers/api'
+import { getById, getCreditsById } from '@/helpers/api'
 import Image from 'next/image'
 import Footer from '@/components/Footer'
 import Badge from '@/components/Badge'
 import Rating from '@/components/Rating'
+import CastingTable from '@/components/CastingTable'
 
 const MovieDetail = (props) => {
 
   const movie = props.movieData
   const genres = movie.genres
   const rating = movie.vote_average.toFixed(1)
-  console.log(movie)
 
   return (
     <>
@@ -26,9 +26,14 @@ const MovieDetail = (props) => {
                 <Badge key={genre.id} genre={genre.name} />
               ))}
             </div>
+
             <Rating rating={rating} />
+
+            <p className='font-normal text-gray-400'>Released: {movie.release_date}</p>
           </div>
-        </div> 
+        </div>
+
+        <CastingTable cast={props.movieCredits.cast} />
       </PageContent>
       <Footer />
     </>
@@ -38,10 +43,12 @@ const MovieDetail = (props) => {
 export async function getServerSideProps(context) {
   const { MovieDetail } = context.query
   const movieData = await getById(MovieDetail)
+  const movieCredits = await getCreditsById(MovieDetail)
 
   return {
     props: {
-      movieData: movieData
+      movieData: movieData,
+      movieCredits: movieCredits
     }
   }
 }
