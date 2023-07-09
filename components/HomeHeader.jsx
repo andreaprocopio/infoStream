@@ -1,9 +1,10 @@
 import React from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { useState, useEffect } from 'react'
-import { AiOutlineClose } from 'react-icons/ai'
+import { AiOutlineClose, AiFillContacts } from 'react-icons/ai'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { HiSearch } from 'react-icons/hi'
 
 const HomeHeader = () => {
 
@@ -54,12 +55,14 @@ const HomeHeader = () => {
                 </Link>
               </li>
               <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 ' + navText}>
-                <Link href="/search">
+                <Link className="flex gap-1 items-center" href="/search">
+                  <HiSearch size={15} />
                   Search
                 </Link>
               </li>
               <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 ' + navText}>
-                <Link href="/contact">
+                <Link className="flex gap-1 items-center" href="/contact">
+                  <AiFillContacts size={15} />
                   Contact  
                 </Link>
               </li>
@@ -93,7 +96,7 @@ const HomeHeader = () => {
           </li>
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
             <Link href="/search" onClick={mobileMenuHandler}>
-              Search  
+              Search
             </Link>
           </li>
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
