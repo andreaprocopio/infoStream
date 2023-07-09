@@ -31,7 +31,7 @@ const HomeHeader = () => {
     }
   }, [])
 
-  const navBackground = navbarScrolled ? 'bg-white text-gray-900 shadow-lg' : router.asPath !== '/' ? 'bg-transparent text-gray-900 shadow-lg' : 'bg-transparent text-white'
+  const navBackground = navbarScrolled ? 'bg-white text-gray-900 shadow-lg' : router.asPath !== '/' ? 'bg-white text-gray-900 shadow-lg' : 'bg-transparent text-white'
   const navText = navbarScrolled ? 'bg-gradient-to-br from-purple-600 to-blue-500 bg-clip-text text-transparent' : router.asPath !== '/' ? 'bg-gradient-to-br from-purple-600 to-blue-500 bg-clip-text text-transparent' : 'text-white'
   const mobileMenuLeft = mobileMenu ? 'left-0' : 'left-full'
 

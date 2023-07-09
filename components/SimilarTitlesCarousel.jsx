@@ -21,26 +21,21 @@ const responsive = {
     items: 2
   }
 };
-
-
-const CarouselSmall = (props) => {
-
-  const movies = props.movies
-  
+const SimilarTitlesCarousel = (props) => {
+  console.log(props.titles)
   return (
-    <div className={'w-full bg-indigo-900'}>
-      <h4 className={"text-xl mx-auto font-bold px-10 pt-5 max-w-6xl mb-4 text-indigo-50"}>{props.content}</h4>      
+    <div className={'w-full mt-10'}>
+      <h4 className={"text-xl mx-auto font-bold max-w-6xl mb-4"}>Similar Contents:</h4>      
       <Carousel responsive={responsive} 
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={3000}
+                infinite={false}
+                autoPlay={false}
                 className='max-w-6xl mx-auto pb-5'>
-        {movies.map(movie => (
-          <CarouselCardSmall key={movie.id} movie={movie} genres={props.genres} isUpcoming={true} />
+        {props.titles.map(movie => (
+          <CarouselCardSmall key={movie.id} movie={movie} isUpcoming={false} />
         ))}
       </Carousel>
     </div>
   )
 }
 
-export default CarouselSmall
+export default SimilarTitlesCarousel
