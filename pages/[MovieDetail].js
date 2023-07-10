@@ -14,7 +14,6 @@ const MovieDetail = (props) => {
   const similarMovies = props.similarMovies
   const genres = movie.genres
   const rating = movie.vote_average.toFixed(1)
-  console.log(similarMovies)
 
   return (
     <>
@@ -47,10 +46,10 @@ const MovieDetail = (props) => {
 }
 
 export async function getServerSideProps(context) {
-  const { MovieDetail } = context.query
-  const movieData = await getById(MovieDetail, 'movie')
-  const movieCredits = await getCreditsById(MovieDetail, 'movie')
-  const similarMovies = await getSimilarMovies(MovieDetail, 'movie')
+  const { MovieDetail, type } = context.query
+  const movieData = await getById(MovieDetail, type)
+  const movieCredits = await getCreditsById(MovieDetail, type)
+  const similarMovies = await getSimilarMovies(MovieDetail, type)
 
   return {
     props: {

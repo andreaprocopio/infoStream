@@ -22,7 +22,6 @@ const responsive = {
   }
 };
 const SimilarTitlesCarousel = (props) => {
-  console.log(props.titles)
   return (
     <div className={'w-full mt-10'}>
       <h4 className={"text-xl mx-auto font-bold max-w-6xl mb-4"}>Similar Contents:</h4>      

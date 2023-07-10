@@ -136,7 +136,7 @@ export async function getById(id, type) {
     const res = await fetch(url, options)
 
     if (!res.ok) {
-      throw new Error('Could not find movie or tv serie.')
+      throw new Error(`Could not find movie or tv serie. ${type} and ${id}`)
     }
 
     const data = await res.json()
