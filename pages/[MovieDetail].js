@@ -48,9 +48,9 @@ const MovieDetail = (props) => {
 
 export async function getServerSideProps(context) {
   const { MovieDetail } = context.query
-  const movieData = await getById(MovieDetail)
-  const movieCredits = await getCreditsById(MovieDetail)
-  const similarMovies = await getSimilarMovies(MovieDetail)
+  const movieData = await getById(MovieDetail, 'movie')
+  const movieCredits = await getCreditsById(MovieDetail, 'movie')
+  const similarMovies = await getSimilarMovies(MovieDetail, 'movie')
 
   return {
     props: {

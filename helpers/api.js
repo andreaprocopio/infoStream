@@ -122,8 +122,8 @@ export async function getTvGenres() {
 }
 
 
-export async function getById(id) {
-  const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`
+export async function getById(id, type) {
+  const url = `https://api.themoviedb.org/3/${type}/${id}?language=en-US`
   const options = {
     method: 'GET',
     headers: {
@@ -147,8 +147,8 @@ export async function getById(id) {
   }
 }
 
-export async function getCreditsById(id) {
-  const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`
+export async function getCreditsById(id, type) {
+  const url = `https://api.themoviedb.org/3/${type}/${id}/credits?language=en-US`
   const options = {
     method: 'GET',
     headers: {
@@ -172,8 +172,8 @@ export async function getCreditsById(id) {
   }
 }
 
-export async function getSimilarMovies(id) {
-  const url = `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1`
+export async function getSimilarMovies(id, type) {
+  const url = `https://api.themoviedb.org/3/${type}/${id}/similar?language=en-US&page=1`
   const options = {
     method: 'GET',
     headers: {
