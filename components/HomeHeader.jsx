@@ -1,7 +1,7 @@
 import React from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { useState, useEffect } from 'react'
-import { AiOutlineClose, AiFillContacts } from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineContacts } from 'react-icons/ai'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { HiSearch } from 'react-icons/hi'
@@ -34,6 +34,7 @@ const HomeHeader = () => {
 
   const navBackground = navbarScrolled ? 'bg-white text-gray-900 shadow-lg' : router.asPath !== '/' ? 'bg-white text-gray-900 shadow-lg' : 'bg-transparent text-white'
   const navText = navbarScrolled ? 'bg-gradient-to-br from-purple-600 to-blue-500 bg-clip-text text-transparent' : router.asPath !== '/' ? 'bg-gradient-to-br from-purple-600 to-blue-500 bg-clip-text text-transparent' : 'text-white'
+  const iconColor = navbarScrolled ? 'text-purple-600 stroke-current' : router.asPath !== '/' ? 'text-purple-600 stroke-current' : 'text-white'
   const mobileMenuLeft = mobileMenu ? 'left-0' : 'left-full'
 
   return (
@@ -56,13 +57,13 @@ const HomeHeader = () => {
               </li>
               <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 ' + navText}>
                 <Link className="flex gap-1 items-center" href="/search">
-                  <HiSearch size={15} />
+                  <HiSearch className={iconColor} size={15} />
                   Search
                 </Link>
               </li>
               <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 ' + navText}>
                 <Link className="flex gap-1 items-center" href="/contact">
-                  <AiFillContacts size={15} />
+                  <AiOutlineContacts className={iconColor} size={15} />
                   Contact  
                 </Link>
               </li>
