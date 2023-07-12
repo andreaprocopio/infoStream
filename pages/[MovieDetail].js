@@ -1,6 +1,6 @@
 import React from 'react'
 import PageContent from '@/components/PageContent'
-import { getById, getCreditsById, getSimilarMovies } from '@/helpers/api'
+import { getById, getCreditsById, getSimilarMovies, getItemById } from '@/helpers/api'
 import Image from 'next/image'
 import Footer from '@/components/Footer'
 import Badge from '@/components/Badge'

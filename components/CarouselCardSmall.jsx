@@ -15,8 +15,10 @@ const CarouselCardSmall = (props) => {
     releaseDate = movie.first_air_date
   }
 
+  let media_type = movie.media_type ? movie.media_type : movie.release_date ? 'movie' : 'tv';
+
   return (
-    <Link href={`/${movie.id}`} className="bg-white border-gray-200 rounded-lg shadow w-4/5 mx-auto block relative">
+    <Link href={{ pathname: `${movie.id}`, query: { type: media_type }}} className="bg-white border-gray-200 rounded-lg shadow w-4/5 mx-auto block relative">
       <Image src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} width={300} height={450} className='rounded-t-lg w-full max-h-[112px] h-[112px] object-cover' alt={movie.original_title != undefined ? movie.original_title : 'movie poster'} />
       <div className="p-2 h-[130px] max-h-[130px]">
         <h5 className="mb-2 text-sm h-[45px] font-bold tracking-tight line-clamp-2">{movie.title ? movie.title : movie.original_title ? movie.original_title : movie.name}</h5>

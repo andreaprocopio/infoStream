@@ -196,3 +196,27 @@ export async function getSimilarMovies(id, type) {
     console.error(error)
   }
 }
+
+export async function getItemById(id) {
+  const url = `https://api.themoviedb.org/3/find/${id}?api_key=28a5c95c9d8d71e301883863ce8b9580`
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json'
+    }
+  }
+
+  try {
+    const res = await fetch(url, options)
+
+    if (!res.ok) {
+      throw new Error('Could not find the searched movie/tv serie')
+    }
+
+    const data = await res.json()
+    return data
+    
+  } catch(err) {
+    console.error(err)
+  }
+}
