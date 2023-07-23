@@ -27,12 +27,14 @@ const CarouselCard = (props) => {
         <p className="mb-1 font-normal text-gray-400">{releaseDate}</p>
         <Rating rating={rating} />
       </div>
-      <div className='absolute bottom-2 right-2 flex gap-2'>
-        {movieGenreNames.slice(0,2).map(genre => (
-          <Badge key={genre} genre={genre} />
-        ))}
+      {props.genres.length > 0 && (
+        <div className='absolute bottom-2 right-2 flex gap-2'>
+          {movieGenreNames.slice(0,2).map(genre => (
+            <Badge key={genre} genre={genre} />
+          ))}
         {movieGenreNames.length > 2 && <Badge />}
-      </div>
+    </div>
+      )}
     </Link>
   )
 }

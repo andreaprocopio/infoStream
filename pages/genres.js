@@ -1,8 +1,11 @@
 import React from 'react'
 import PageContent from '@/components/PageContent'
 import GenreSelect from '@/components/GenreSelect'
-import { getMoviesGenres, getTvGenres } from '@/helpers/api'
+import { getMoviesGenres, getTvGenres, getTitlesByGenre } from '@/helpers/api'
 import { useState } from 'react'
+import { FiFilter } from 'react-icons/fi'
+import LoadingSpinner from '@/components/LoadingSpinner'
+import CarouselCard from '@/components/CarouselCard'
 
 
 const genres = (props) => {
@@ -10,6 +13,9 @@ const genres = (props) => {
   const tvGenres = props.tvGenres.genres
 
   const [isMovie, setIsMovie] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+  const [pagination, setPagination] = useState(1)
+  const [titlesList, setTitlesList] = useState(undefined)
 
   const switchToTv = () => {
     setIsMovie(false)
@@ -21,34 +27,47 @@ const genres = (props) => {
 
   const selectGenres = isMovie ? movieGenres : tvGenres
 
-  const activeClass = "text-white bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500"
+  const activeClass = "text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br"
   const deactiveClass = "text-purple-600 bg-white border border-purple-600"
 
   const movieButtonClasses = isMovie ? activeClass : deactiveClass
   const tvButtonClasses = !isMovie ? activeClass : deactiveClass
+
+
+  // Getting titles by the genre
+  const titlesByGenre = async (genre) => {
+    setIsLoading(true)
+    const mediaType = isMovie ? 'movie' : 'tv'
+    const data = await getTitlesByGenre(genre, pagination, mediaType)
+    setIsLoading(false)
+    setTitlesList(data.results)
+  }
+
   return (
     <PageContent>
       <h4 className={"text-2xl font-bold mb-4 w-full"}>Genres</h4>
-      <div className='flex flex-col mb-4 gap-4'>
-        <p className=''>What are you looking for?</p>
+      <div className='flex flex-col md:flex-row gap-4 md:items-center'>
 
-        <div className='flex gap-2'>
-          <button onClick={switchToMovie} className={movieButtonClasses + " hover:-translate-y-0.5 transition duration-150 inline-flex items-center justify-center overflow-hidden text-sm font-medium rounded-lg group focus:ring-0 focus:outline-none z-[10001]"}>
-            <span className="relative px-2.5 py-1 transition-all ease-in duration-75 rounded-md group-hover:bg-opacity-0">
-              Movies
-            </span>
+        <div className='flex flex-col md:flex-row gap-4'>
+          <button onClick={switchToMovie} className={movieButtonClasses + ` focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center`}>
+            Movies
           </button>
-
-          <button onClick={switchToTv} className={tvButtonClasses + " hover:-translate-y-0.5 transition duration-150 inline-flex items-center justify-center overflow-hidden text-sm font-medium rounded-lg group focus:ring-0 focus:outline-none z-[10001]"}>
-            <span className="relative px-2.5 py-1 transition-all ease-in duration-75 rounded-md group-hover:bg-opacity-0">
-              Tv series
-            </span>
-          </button>                     
+          <button onClick={switchToTv} className={tvButtonClasses + ` focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center`}>
+            Tv Series
+          </button>          
         </div>
 
+        <GenreSelect genres={selectGenres} titlesByGenre={titlesByGenre} />
       </div>
 
-      <GenreSelect genres={selectGenres} />
+      <div className='flex items-center flex-col mt-8'>
+        {isLoading && <LoadingSpinner />}
+        {!isLoading && titlesList != undefined && titlesList.map((movie) => (
+          <div className='mb-4'>
+            <CarouselCard key={movie.id} movie={movie} genres={[]} />
+          </div>
+        ))}
+      </div>
     </PageContent>
   )
 }
