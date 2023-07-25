@@ -18,8 +18,6 @@ const genres = (props) => {
   const [titlesList, setTitlesList] = useState(undefined)
   const [genre, setGenre] = useState(null)
 
-  console.log(pagination)
-
   const switchToTv = () => {
     setIsMovie(false)
   }
@@ -47,8 +45,13 @@ const genres = (props) => {
 
   // Getting titles by the genre
   const titlesByGenre = async (genre) => {
+    if (genre === null) {
+      return
+    }
+
     setGenre(genre)
     setIsLoading(true)
+    setTitlesList(undefined)
     const mediaType = isMovie ? 'movie' : 'tv'
     const data = await getTitlesByGenre(genre, pagination, mediaType)
     setIsLoading(false)
@@ -59,7 +62,9 @@ const genres = (props) => {
     titlesByGenre(genre);
   }, [pagination]);
 
-  console.log(genre)
+  useEffect(() => {
+    setPagination(1)
+  }, [genre])
 
   return (
     <>
@@ -81,15 +86,15 @@ const genres = (props) => {
 
         {isLoading && <LoadingSpinner />}
 
-        <div className='grid gap-6 grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3 w-full mt-10 pb-4'>
+        <div className='grid gap-6 md:gap-8 grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3 w-full mt-10 pb-4'>
           {!isLoading && titlesList != undefined && titlesList.map((movie) => (
             <ResultListCard key={movie.id} movie={movie} genres={[]} />
           ))}
         </div>
 
         {titlesList != undefined && (
-          <div className="flex">
-            <button onClick={decrementPage} className="flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+          <div className="flex justify-between md:justify-center gap-10 mt-10">
+            <button onClick={decrementPage} className="flex items-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700">
               Previous
             </button>
 
