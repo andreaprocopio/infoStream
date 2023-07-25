@@ -52,7 +52,7 @@ const HomeHeader = () => {
             <ul className="font-medium flex space-x-8">
               <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 ' + navText}>
                 <Link href="/genres">
-                  Genres  
+                  Genres
                 </Link>
               </li>
               <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 ' + navText}>
@@ -64,7 +64,7 @@ const HomeHeader = () => {
               <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 ' + navText}>
                 <Link className="flex gap-1 items-center" href="/contact">
                   <AiOutlineContacts className={iconColor} size={15} />
-                  Contact  
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -87,12 +87,12 @@ const HomeHeader = () => {
         <ul className="h-full font-extrabold uppercase flex flex-col space-y-10 justify-center items-center text-3xl">
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
             <Link href="/" onClick={mobileMenuHandler}>
-              Home  
+              Home
             </Link>
-          </li>          
+          </li>
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
             <Link href="/genres" onClick={mobileMenuHandler}>
-              Genres  
+              Genres
             </Link>
           </li>
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
@@ -106,7 +106,7 @@ const HomeHeader = () => {
             </Link>
           </li>
         </ul>
-      </div>      
+      </div>
     </>
   )
 }

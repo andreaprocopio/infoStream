@@ -38,7 +38,7 @@ const MovieDetail = (props) => {
         <CastingTable cast={props.movieCredits.cast} />
 
         {similarMovies.total_results > 0 && <SimilarTitlesCarousel titles={similarMovies.results} />}
-        
+
       </PageContent>
       <Footer />
     </>

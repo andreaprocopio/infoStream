@@ -54,7 +54,7 @@ const genres = (props) => {
           </button>
           <button onClick={switchToTv} className={tvButtonClasses + ` focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center`}>
             Tv Series
-          </button>          
+          </button>
         </div>
 
         <GenreSelect genres={selectGenres} titlesByGenre={titlesByGenre} />
@@ -82,7 +82,7 @@ export async function getStaticProps() {
       tvGenres
     },
     revalidate: 900 //15 m
-  }  
+  }
 }
 
 export default genres

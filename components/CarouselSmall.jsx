@@ -26,11 +26,11 @@ const responsive = {
 const CarouselSmall = (props) => {
 
   const movies = props.movies
-  
+
   return (
     <div className={'w-full bg-indigo-900'}>
-      <h4 className={"text-xl mx-auto font-bold px-10 pt-5 max-w-6xl mb-4 text-indigo-50"}>{props.content}</h4>      
-      <Carousel responsive={responsive} 
+      <h4 className={"text-xl mx-auto font-bold px-10 pt-5 max-w-6xl mb-4 text-indigo-50"}>{props.content}</h4>
+      <Carousel responsive={responsive}
                 infinite={true}
                 autoPlay={true}
                 autoPlaySpeed={3000}

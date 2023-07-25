@@ -28,8 +28,8 @@ const CarouselBig = (props) => {
 
   return (
     <div className={'w-full bg-white'}>
-      <h4 className={"text-2xl mx-auto font-bold px-10 pt-5 max-w-6xl mb-2"}>{props.content}</h4>      
-      <Carousel responsive={responsive} 
+      <h4 className={"text-2xl mx-auto font-bold px-10 pt-5 max-w-6xl mb-2"}>{props.content}</h4>
+      <Carousel responsive={responsive}
                 infinite={true}
                 autoPlay={true}
                 autoPlaySpeed={3000}
