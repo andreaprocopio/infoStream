@@ -5,7 +5,7 @@ import { getMoviesGenres, getTvGenres, getTitlesByGenre } from '@/helpers/api'
 import { useState } from 'react'
 import { FiFilter } from 'react-icons/fi'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import CarouselCard from '@/components/CarouselCard'
+import ResultListCard from '@/components/ResultListCard'
 
 
 const genres = (props) => {
@@ -60,12 +60,10 @@ const genres = (props) => {
         <GenreSelect genres={selectGenres} titlesByGenre={titlesByGenre} />
       </div>
 
-      <div className='flex items-center flex-col mt-8'>
+      <div className='flex items-center flex-col mt-8 w-full'>
         {isLoading && <LoadingSpinner />}
         {!isLoading && titlesList != undefined && titlesList.map((movie) => (
-          <div className='mb-4'>
-            <CarouselCard key={movie.id} movie={movie} genres={[]} />
-          </div>
+          <ResultListCard key={movie.id} movie={movie} genres={[]} />
         ))}
       </div>
     </PageContent>
