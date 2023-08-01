@@ -18,6 +18,7 @@ const Hero = () => {
       </div>
       {/* Image */}
       <Image src="/hero-background.jpg" width={2400} height={3600} className='absolute top-0 right-0 left-0 object-cover h-full z-10' />
+
     </section>
   )
 }

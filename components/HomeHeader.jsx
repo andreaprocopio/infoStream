@@ -5,6 +5,7 @@ import { AiOutlineClose, AiOutlineContacts } from 'react-icons/ai'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { HiSearch } from 'react-icons/hi'
+import { AiFillGithub } from 'react-icons/ai'
 
 const HomeHeader = () => {
 
@@ -61,6 +62,12 @@ const HomeHeader = () => {
                   Search
                 </Link>
               </li>
+              <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 ' + navText}>
+                <a className="flex gap-1 items-center" href="https://github.com/andreaprocopio/infoStream">
+                  <AiFillGithub className={iconColor} size={15} />
+                  GitHub
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -93,6 +100,12 @@ const HomeHeader = () => {
             <Link href="/search" onClick={mobileMenuHandler}>
               Search
             </Link>
+          </li>
+
+          <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
+            <a href="https://github.com/andreaprocopio/infoStream" onClick={mobileMenuHandler}>
+              GitHub
+            </a>
           </li>
         </ul>
       </div>
