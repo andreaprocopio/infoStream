@@ -61,12 +61,6 @@ const HomeHeader = () => {
                   Search
                 </Link>
               </li>
-              <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 ' + navText}>
-                <Link className="flex gap-1 items-center" href="/contact">
-                  <AiOutlineContacts className={iconColor} size={15} />
-                  Contact
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -98,11 +92,6 @@ const HomeHeader = () => {
           <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
             <Link href="/search" onClick={mobileMenuHandler}>
               Search
-            </Link>
-          </li>
-          <li className={'hover:-translate-y-0.5 hover:cursor-pointer transition-all ease-in duration-150 text-white'}>
-            <Link href="/contact" onClick={mobileMenuHandler}>
-              Contact
             </Link>
           </li>
         </ul>
