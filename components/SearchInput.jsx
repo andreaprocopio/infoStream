@@ -11,7 +11,7 @@ const SearchInput = ({ onSearchTermChange }) => {
     return () => {
       clearTimeout(timerId);
     };
-  }, [searchTerm, onSearchTermChange]);
+  }, [searchTerm]);
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);

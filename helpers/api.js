@@ -246,8 +246,8 @@ export async function getTitlesByGenre(genre, pageNumber, mediaType) {
   }
 }
 
-export async function getMoviesByQuery(query) {
-  const url = `https://api.themoviedb.org/3/search/movie?query=${query}`
+export async function getMoviesByQuery(query, pageNumber, mediaType) {
+  const url = `https://api.themoviedb.org/3/search/${mediaType}?query=${query}&page=${pageNumber}`
   const options = {
     method: 'GET',
     headers: {
