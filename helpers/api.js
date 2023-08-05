@@ -1,4 +1,4 @@
-const auth = `Bearer ${process.env.MOVIEDB_API_KEY}`
+const auth = `Bearer ${process.env.NEXT_PUBLIC_MOVIEDB_API_KEY}`
 
 export async function getTrendingMovies() {
   const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
