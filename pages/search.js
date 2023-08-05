@@ -61,6 +61,10 @@ const search = () => {
     setPagination(1)
   }, [query])
 
+  useEffect(() => {
+    setFoundTitles(undefined)
+  }, [isMovie])
+
   const activeClass = "text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br"
   const deactiveClass = "text-purple-600 bg-white border border-purple-600"
 
